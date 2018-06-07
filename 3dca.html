@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Ho-Wan/howanto.com/master/img/3dca_meta1.jpg">
+  <meta name="description" content="3D Cellular Automata - Game of Life. Uses WebGL, three.js. Cool, stylish and polished 3D graphics showcase in web browser with interactive demo.">
+  <meta name="keywords" content="3D, Cellular, Automata, Game of Life, WebGL, three.js, cool, stylish, polished, web browser, graphics, interactive, demo, showcase">
+  <meta name="author" content="Ho-Wan To">
+  <title>3D Cellular Automata</title>
+  <!-- HOSTED -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <!-- LOCAL -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/3dca.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120258112-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-120258112-1');
+  </script>
+  <!-- Google Analytics End -->
+</head>
+
+<body>
+  <div id="home"></div>
+  <!-- 0:navbar -->
+  <div id="import-navbar-in">
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-blue">
+      <div class="container-fluid">
+        <a class="navbar-brand fab fa-houzz fa-2x link-smooth" href="/" dest="home"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link link-smooth" href="/#about-me" dest="about-me">ABOUT</a>
+            <a class="nav-item nav-link link-smooth" href="/#projects" dest="projects">PROJECTS</a>
+            <a class="nav-item nav-link link-smooth" href="/comp/" dest="">COMPUTATION</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- 1:canvas -->
+  <div id="threejs"></div>
+
+  <!-- 2:UI -->
+  <div class="container-fluid">
+    <div class="buttons">
+      <button class="button" id="btn1">
+        <i class="fas fa-question"></i>
+      </button>
+    </div>
+    <div class="panel transbox">
+      <button class="panel button" id="btn2">
+        <i class="fas fa-sun"></i>
+        <p class="panel btn-txt" id="btn2-txt">Z: Move light</p>
+      </button>
+      <button class="panel button" id="btn3">
+        <i class="fas fa-pause"></i>
+        <p class="panel btn-txt" id="btn3-txt">X: Update cell</p>
+      </button>
+      <button class="panel button" id="btn4">
+        <i class="fas fa-camera"></i>
+        <p class="panel btn-txt" id="btn4-txt">C: Move camera</p>
+      </button>
+      <button class="panel button" id="btn5">
+        <i class="fas fa-chart-bar"></i>
+        <p class="panel btn-txt" id="btn5-txt">Toggle stats</p>
+      </button>
+      <div class="slidecontainer">
+        <p>Fade time: <span id="fade-time">5.0</span>s</p>
+        <input type="range" min="0" max="4" value="0.4" step = "0.1" class="slider" id="slider1">
+      </div>
+      <div class="panel" id="about-txt">
+        <h5><u>About</u></h5>
+        <p>3D Game of Life (Cellular Automata)<br>
+        Created by Ho-Wan To<br>
+        Can zoom and orbit if camera paused.<br>
+        New glider/oscillator every 0.5s<br>
+        Uses three.js, Tween.js<br>
+        Find me on <a href="https://github.com/ho-wan/howanto.com"><b>GitHub!</b></a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3:footer -->
+  <div id="import-footer-in">
+    <footer class="container-fluid bg-blue text-center">
+      <div class="info-box">
+        <div class="footnote">&copy;2018 Ho-Wan To</span>
+          <a href="https://www.linkedin.com/in/howanto/" class="fab fa-linkedin"></a>
+          <a href="https://github.com/ho-wan" class="fab fa-github"></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- HOSTED -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <!-- LOCAL -->
+  <script src="./js/three.js/three.min.js"></script>
+  <script src="./js/three.js/OrbitControls.js"></script>
+  <script src="./js/three.js/stats.min.js"></script>
+  <script src="./js/three.js/Tween.js"></script>
+  <script src="./js/3dca.js"></script>
+
+</body>
+
+</html>

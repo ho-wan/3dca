@@ -1,0 +1,201 @@
+.navbar {
+  font-size: 1.3em;
+  min-height: 60px;
+}
+
+body {
+  margin-top: 0;
+  overscroll-behavior-y: contain;
+}
+
+canvas {
+  padding: 0;
+  margin: auto;
+  display: block;
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 60px !important;
+}
+
+#threejs {
+  height: 100vh;
+  width: 100vw;
+}
+
+.button {
+  /* z-index: 1; */
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #333;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #666;
+}
+
+.disable-panel {
+  pointer-events: none;
+  opacity: 0 !important;
+}
+
+.panel {
+  position: inherit;
+  display: block;
+}
+
+.panel .button {
+  background-color: red;
+}
+
+.panel .button:hover {
+  background-color: orange;
+}
+
+.button-on {
+  background-color: green !important;
+}
+
+.button-on:hover {
+  background-color: greenyellow !important;
+}
+
+#btn1 {
+  position: absolute;
+  display: block;
+  left: 10px;
+  top: 70px;
+}
+
+#btn2 {
+  left: 10px;
+  top: 10px;
+}
+
+#btn3 {
+  left: 10px;
+  top: 60px;
+}
+
+#btn4 {
+  left: 10px;
+  top: 110px;
+}
+
+#btn5 {
+  left: 10px;
+  top: 160px;
+}
+
+.btn-txt {
+  left: 50px;
+  top: 5px;
+  width: 200px;
+  text-align: left;
+}
+
+.slidecontainer {
+  position: relative;
+  display: inline-flex;
+  left: 10px;
+  width: 250px;
+  top: 210px;
+}
+
+.slider {
+  position: absolute;
+  left: 120px;
+  top: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+#about-txt {
+  left: 10px;
+  top: 230px;
+  width: auto;
+  line-height: 25px;
+}
+
+div.transbox {
+  position: absolute;
+  display: block;
+  left: 60px;
+  top: 70px;
+  border-radius: 12px;
+  background-color: #000000;
+  opacity: 0.7;
+  border: 2px solid #1565c0;
+  width: 300px;
+  height: 420px;
+  max-width: 90vw;
+  max-height: 90vh;
+  color: #ffffff;
+}
+
+@media (max-height: 370px) {
+  div.transbox {
+    transform: scale(0.8);
+    max-width: 110%;
+    left: 10px;
+    top: 40px;
+  }
+}
+
+@media (max-width: 370px) {
+  div.transbox {
+    max-width: 80%;
+  }
+  #about-txt {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-height: 500px) and (orientation:landscape) {
+  div.transbox {
+    width: 550px;
+    height: 240px;
+  }
+  #about-txt {
+    left: 250px;
+    top: 10px;
+    width: auto;
+    line-height: 25px;
+  }
+}
